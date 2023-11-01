@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Read from stdin
+while IFS= read -r line; do
+    echo "$line"
+done | sed '1 i\
+//typstfmt::off\
+' | sed '$ a\
+//typstfmt::on'
+
